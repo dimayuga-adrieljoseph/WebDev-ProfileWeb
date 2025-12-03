@@ -1,0 +1,92 @@
+/* ===== HERO SECTION ===== */
+.hero {
+    background: url('../assets/pup_bldg_a.jpg') center/cover no-repeat;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px; /* leave space for navbar */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    text-align: center;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MAIN CONTENT ===== */
+main.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 4rem auto 2rem auto; /* spacing below navbar */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.glass-card {
+    padding: 2rem;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3 {
+    margin: 0.5rem 0 1rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 { font-size: 2.4rem; text-align: center; }
+h2 { font-size: 2rem; color: #ffdddd; }
+h3 { font-size: 1.5rem; color: #ffeaea; }
+
+/* ===== FEATURES GRID ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ===== OBJECTIVES LIST ===== */
+.objectives-list li {
+    margin-bottom: 0.8rem;
+}
+
+/* ===== CONTACT INFO ===== */
+.contact-info li {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== FADE-IN ANIMATION ===== */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+    main.container { width: 90%; margin-top: 3rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+}

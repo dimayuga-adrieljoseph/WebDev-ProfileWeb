@@ -1,0 +1,107 @@
+/* ===== Global Styles ===== */
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('../assets/pup_grounds.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* ===== Floating Island Navbar ===== */
+.main-nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    /* Make it look like an island */
+    background: rgba(128, 1, 1, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    /* Floating shadows */
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+
+    color: white;
+
+    /* Instead of full width, center it */
+    width: 90%;
+    max-width: 80%;
+    margin: 0 auto;
+
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 1000;
+}
+
+/* ===== Logo + Title Group ===== */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo img {
+    display: block;
+    height: auto;
+}
+
+/* Title */
+.main-nav h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ===== Navigation Links ===== */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 2rem;
+    padding: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Push Content Down So It Doesn't Hide Below Floating Header ===== */
+main.content {
+    padding-top: 180px; /* increased due to floating island */
+    text-align: center;
+    color: white;
+}

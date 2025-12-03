@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login_styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="login-page">
+      <div class="card">
+        <div class="brand">
+          <img src="assets/pup_logo.png" alt="Pup logo" class="logo-img" />
+          <h1 class="logo">Log in</h1>
+        </div>
+        <p class="lead">Welcome back — please sign in to your account</p>
+
+        <form id="loginForm" class="login-form" action="#" method="post">
+          <div class="field">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="yourusername"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button class="btnprimary" type="submit">Log in</button>
+
+          <p class="signup">
+            No account yet? <a href="register.html">Create one</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === "omlingo" && password === "pupt") {
+          alert("Login successful!");
+          window.location.href = "index.html";
+        } else {
+          alert("Invalid username or password. Please try again.");
+        }
+      });
+  </script>
+</html>

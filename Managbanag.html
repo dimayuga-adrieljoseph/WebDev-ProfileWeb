@@ -1,59 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume - John Mark E. Managbanag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: url('assets/pup_grounds.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      background: linear-gradient(135deg, #800101 0%, #b30101 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+      background: #f8f9fa;
+      border-bottom: 3px solid #800101;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #800101;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      border-left: 4px solid #800101;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateX(10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #800101;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section h3::before {
+      content: '▶';
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover h3::before {
+      transform: translateX(5px);
+    }
+
+    .section p {
+      line-height: 1.8;
+      color: #555;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    ul li::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      color: #800101;
+      font-size: 1.2rem;
+    }
+
+    ul li:hover {
+      color: #800101;
+    }
+
+    ol {
+      padding-left: 1.5rem;
+      color: #555;
+    }
+
+    ol li {
+      padding: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills-grid li {
+      background: linear-gradient(135deg, #800101 0%, #b30101 100%);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .skills-grid li::before {
+      content: none;
+    }
+
+    .skills-grid li:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-info {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px dashed #800101;
+    }
+
+    .contact-info li {
+      padding: 0.3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 
-<body bgcolor="lemonchiffon">
-  <h1 align="center">John Mark E. Managbanag</h1>
-  <h2 align="center"> Web Development </h2>
-  <hr>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>John Mark E. Managbanag</h1>
+      <h2>Web Development</h2>
+    </div>
 
-  <img src="assets/JM.jpg" width="120" height="120" align="left" hspace="12" vspace="6">
+    <div class="profile-section">
+      <img src="assets/JM.jpg" class="profile-img" alt="John Mark E. Managbanag" id="profileImg">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <ul>
+          <li>📧 Email: jmmanagbanag123@gmail.com</li>
+          <li>📱 Phone: 09611686447</li>
+          <li>📍 Address: Blk 32 Lot 1, Central Bicutan, Taguig City</li>
+        </ul>
+      </div>
+    </div>
 
-  <h3>Contact</h3>
-  <p>
-    Email: jmmanagbanag123@gmail.com<br>
-    Phone: 09611686447<br>
-    Address: Blk 32 Lot 1, Central Bicutan, Taguig City
-  </p>
+    <div class="content">
+      <div class="section">
+        <h3>Objective</h3>
+        <p>
+          I am a beginner learning web development and programming. I want to improve my skills
+          in building simple pages and writing programs while learning new tools and workflows.
+        </p>
+      </div>
 
-  <br>
+      <div class="section">
+        <h3>Education</h3>
+        <ul>
+          <li>Good Shepherd of Taguig Colleges — STEM graduate (2020 - 2022)</li>
+          <li>Polytechnic University of the Philippines — BSIT (2023 - 2027)</li>
+        </ul>
+      </div>
 
-  <h3>Objective</h3>
-  <p>
-    I am a beginner learning web development and programming. I want to improve my skills
-    in building simple pages and writing programs while learning new tools and workflows.
-  </p>
+      <div class="section">
+        <h3>Skills</h3>
+        <ul class="skills-grid">
+          <li>C++</li>
+          <li>Git</li>
+          <li>Python</li>
+        </ul>
+      </div>
 
-  <h3>Education</h3>
-  <ul>
-    <li>Good Shepherd of Taguig Colleges — STEM graduate (2020 - 2022)</li>
-    <li>Polytechnic University of the Philippines — BSIT (2023 - 2027)</li>
-  </ul>
+      <div class="section">
+        <h3>Beginner Projects / Experience</h3>
+        <ol>
+          <li>Practice HTML pages with headings, paragraphs, and lists.</li>
+          <li>Small console programs and exercises in C++ and Python.</li>
+          <li>Using Git for simple version control practice.</li>
+        </ol>
+      </div>
 
-  <h3>Skills</h3>
-  <ul type="square">
-    <li>C++</li>
-    <li>Git</li>
-    <li>Python</li>
-  </ul>
+      <div class="section">
+        <h3>Hobbies</h3>
+        <ul>
+          <li>Reading about programming and practicing simple coding tasks</li>
+          <li>Basketball</li>
+          <li>Gaming</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <h3>Beginner Projects / Experience</h3>
-  <ol>
-    <li>Practice HTML pages with headings, paragraphs, and lists.</li>
-    <li>Small console programs and exercises in C++ and Python.</li>
-    <li>Using Git for simple version control practice.</li>
-  </ol>
+  <script>
+    const sections = document.querySelectorAll('.section');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  <h3>Hobbies</h3>
-  <ul>
-    <li>Reading about programming and practicing simple coding tasks</li>
-    <li>Basketball</li>
-    <li>Gaming</li>
-  </ul>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
 
- 
+    sections.forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    const profileImg = document.getElementById('profileImg');
+    profileImg.addEventListener('click', () => {
+      profileImg.style.animation = 'none';
+      setTimeout(() => {
+        profileImg.style.animation = 'spin 0.6s ease';
+      }, 10);
+    });
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.2); }
+        100% { transform: rotate(360deg) scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const listItems = document.querySelectorAll('ul li, ol li');
+    listItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.paddingLeft = '2rem';
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.paddingLeft = '1.5rem';
+      });
+    });
+  </script>
 </body>
 </html>
